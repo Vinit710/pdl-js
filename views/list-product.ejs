@@ -1,0 +1,50 @@
+<!-- views/list-product.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>List Your Product | Your Awesome Website</title>
+  <link rel="stylesheet" href="/styles.css">
+  <!-- Add your styles here if needed -->
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products">Products</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <h1>List Your Product</h1>
+  </header>
+
+  <main>
+    <form action="/list-product" method="post" enctype="multipart/form-data">
+      <label for="productTitle">Product Title:</label>
+      <input type="text" id="productTitle" name="productTitle" required>
+      <br>
+
+      <label for="productDescription">Product Description:</label>
+      <textarea id="productDescription" name="productDescription" rows="4" required></textarea>
+      <br>
+
+      <label for="productPrice">Product Price:</label>
+      <input type="text" id="productPrice" name="productPrice" required>
+      <br>
+
+      <label for="productImage">Product Image:</label>
+      <input type="file" id="productImage" name="productImage" accept="image/*" required>
+      <br>
+
+      <button type="submit">Submit Product</button>
+    </form>
+  </main>
+
+  <div class="footer">
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <a href="https://github.com/" target="_blank">GitHub</a>
+    <a href="https://www.yourcollegewebsite.com/" target="_blank">College Website</a>
+  </div>
+</body>
+</html>

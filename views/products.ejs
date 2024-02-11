@@ -1,0 +1,41 @@
+<!-- views/products.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Your Awesome Website</title>
+  <link rel="stylesheet" href="/styles.css">
+  <!-- Add your styles here if needed -->
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products">Products</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <h1>Products</h1>
+  </header>
+
+  <main>
+    <div class="product-list">
+      <% products.forEach(product => { %>
+        <div class="product">
+          <h3><%= product.title %></h3>
+          <p><%= product.description %></p>
+          <p>Price: $<%= product.price.toFixed(2) %></p>
+          <img src="/uploads/<%= product.image %>" alt="<%= product.title %> Image">
+        </div>
+      <% }); %>
+    </div>
+  </main>
+
+  <div class="footer">
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <a href="https://github.com/" target="_blank">GitHub</a>
+    <a href="https://www.yourcollegewebsite.com/" target="_blank">College Website</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Awesome Website</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" >Home</a>
+      <a href="/products" >Products</a>
+      <a href="/about" >About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <h1>Your Awesome Website</h1>
+  </header>
+
+  <main>
+    <div class="popular-products">
+      <h2 style="color: #333;">Popular Products</h2>
+      <div class="product-box">
+        <% latestProducts.forEach(product => { %>
+          <div class="product">
+            <h3><%= product.title %></h3>
+            <p><%= product.description %></p>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+
+    <button class="list-product-btn" onclick="location.href='/list-product'">List Your Product Now</button>
+  </main>
+
+  <div class="footer">
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <a href="https://github.com/" target="_blank">GitHub</a>
+    <a href="https://www.yourcollegewebsite.com/" target="_blank">College Website</a>
+  </div>
+</body>
+</html>
