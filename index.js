@@ -26,13 +26,13 @@ const products = [
     title: 'Product 1',
     description: 'Description of Product 1',
     price: 19.99,
-    image: 'product1.jpg',
+    image: 'uploads/productImage-1702221578110.jpeg',
   },
   {
     title: 'Product 2',
     description: 'Description of Product 2',
     price: 29.99,
-    image: 'product2.jpg',
+    image: 'uploads/productImage-1702220945886.jpeg',
   },
   // Add more products as needed
 ];
@@ -67,7 +67,7 @@ app.get('/list-product', (req, res) => {
 
 app.post('/list-product', upload.single('productImage'), (req, res) => {
   const { productTitle, productDescription, productPrice } = req.body;
-  const productImage = req.file ? req.file.filename : null;
+  const productImage = req.file ? 'uploads/' + req.file.filename : null;
 
   // Save product data to a database or in-memory storage
   // For simplicity, let's log the data for now
@@ -76,7 +76,7 @@ app.post('/list-product', upload.single('productImage'), (req, res) => {
     description: productDescription,
     price: parseFloat(productPrice), // Assuming price is a number
     image: productImage,
-  });
+  })
 
   // Redirect to the home page or display a confirmation message
   res.redirect('/');

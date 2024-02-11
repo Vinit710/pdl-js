@@ -25,8 +25,8 @@
         <div class="product">
           <h3><%= product.title %></h3>
           <p><%= product.description %></p>
-          <p>Price: $<%= product.price.toFixed(2) %></p>
-          <img src="/uploads/<%= product.image %>" alt="<%= product.title %> Image">
+          <p>Price: <%= product.price %></p>
+          <img src="<%= product.image %>" alt="<%= product.title %> Image">
         </div>
       <% }); %>
     </div>
