@@ -8,8 +8,12 @@ body {
 
   header {
     background: #333;
-    padding: 10px;
+    padding: 2px;
     text-align: center;
+  }
+
+  header h1 {
+    color: #fff; /* Set the text color for h1 inside the header */
   }
 
   nav {
