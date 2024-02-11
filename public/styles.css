@@ -96,3 +96,18 @@ body {
     cursor: pointer;
     font-size: 18px;
   }
+
+  .carousel-inner img {
+    object-fit: cover;
+    max-height: 300px; /* Adjust the height as needed */
+  }
+  
+  /* Adjust the carousel-item height */
+  .carousel-item {
+    height: 300px; /* Adjust the height as needed */
+  }
+  
+  /* Optional: Add margin to the carousel for spacing */
+  #featuredCarousel {
+    margin-top: 20px;
+  }
