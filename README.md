@@ -1,6 +1,6 @@
 <h> TO  Run</h>
 
-INSTAL node.js
+INSTALL node.js
 
 GO TO project directory through terminal and run the following:
 1. npm install
