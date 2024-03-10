@@ -111,3 +111,59 @@ body {
   #featuredCarousel {
     margin-top: 20px;
   }
+
+
+  /* Product Details Container Styles */
+/* Main Container Styles */
+
+
+/* Product Details Container Styles */
+.product-details-container {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #6c6969;
+  background-color: #adc8d2;
+}
+
+.product-details {
+  width: 100%;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Chat Container Styles */
+.chat-container {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #6c6969;
+  background-color: #e2eef3;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.user-message {
+  text-align: left;
+  color: #333; /* Set the text color for user messages */
+}
+  
+.chat-prompt {
+  text-align: center;
+  color: #060606; /* Adjust the color as needed */
+  margin-bottom: 10px; /* Add some spacing below the prompt */
+  font-size: 50px; /* Adjust the font size as needed */
+  background-color: aqua;
+}
+
+  
+
+  
+  
+  
+  
