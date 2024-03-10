@@ -23,8 +23,7 @@
     <div class="product-list">
       <% products.forEach(product => { %>
         <div class="product">
-          <h3><%= product.title %></h3>
-          <p><%= product.description %></p>
+          <h3><a href="/product/<%= product.id %>"><%= product.title %></a></h3>
           <p>Price: <%= product.price %></p>
           <img src="<%= product.image %>" alt="<%= product.title %> Image">
         </div>
