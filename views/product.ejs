@@ -36,6 +36,10 @@
       <textarea id="user-input" placeholder="Type your message"></textarea>
       <button onclick="sendMessage()">Send</button>
     </div>
+
+   
+    
+  
   </main>
 
   <div class="footer">
@@ -45,12 +49,16 @@
   </div>
 
   <script>
+
+   
     function sendMessage() {
       var userInput = document.getElementById('user-input').value;
       var chatMessages = document.getElementById('chat-messages');
       chatMessages.innerHTML += '<p class="chat-message user-message"><strong>User:</strong> ' + userInput + '</p>';
       document.getElementById('user-input').value = '';
     }
+
+    
 </script>
 
 </body>
