@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
     margin: 0;
     padding: 0;
@@ -140,187 +139,49 @@ body {
 /* Chat Container Styles */
 .chat-container {
   flex: 1;
-  box-sizing: border-box;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #6c6969;
-  background-color: #e2eef3;
-  overflow-y: auto;
-  z-index: 100;
-}
-
-.user-message {
-  text-align: left;
-  color: #333; /* Set the text color for user messages */
-}
-  
-.chat-prompt {
-  text-align: center;
-  color: #060606; /* Adjust the color as needed */
-  margin-bottom: 10px; /* Add some spacing below the prompt */
-  font-size: 50px; /* Adjust the font size as needed */
-  background-color: aqua;
-}
-
-  
-
-  
-  
-  
-=======
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-
-  header {
-    background: #333;
-    padding: 2px;
-    text-align: center;
-  }
-
-  header h1 {
-    color: #fff; /* Set the text color for h1 inside the header */
-  }
-
-  nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 18px;
-  }
-
-  main {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .popular-products {
-    background: #ddd;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-  }
-
-  .product-box {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-
-  
-
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-
-  .product {
-    flex: 0 0 calc(33.33% - 20px); /* Adjust the width and margin as needed */
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: center;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
-
-  .product img {
-    max-width: 100%;
-    height: 200px; /* Set a fixed height for the images */
-    object-fit: cover; /* This will make sure the image covers the specified dimensions */
-    border-radius: 5px;
-    margin-top: 10px;
-  }
-
-  .footer {
-    background: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .footer a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 16px;
-  }
-
-  .list-product-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-
-  .carousel-inner img {
-    object-fit: cover;
-    max-height: 300px; /* Adjust the height as needed */
-  }
-  
-  /* Adjust the carousel-item height */
-  .carousel-item {
-    height: 300px; /* Adjust the height as needed */
-  }
-  
-  /* Optional: Add margin to the carousel for spacing */
-  #featuredCarousel {
-    margin-top: 20px;
-  }
-
-
-  /* Product Details Container Styles */
-/* Main Container Styles */
-
-
-/* Product Details Container Styles */
-.product-details-container {
-  flex: 1;
-  box-sizing: border-box;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #6c6969;
-  background-color: #adc8d2;
-}
-
-.product-details {
-  width: 100%;
-}
-
-.product-image {
   max-width: 100%;
-  height: auto;
-}
-
-/* Chat Container Styles */
-.chat-container {
-  flex: 1;
   box-sizing: border-box;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border: 1px solid #6c6969;
-  background-color: #e2eef3;
-  overflow-y: auto;
-  z-index: 100;
+  background-color: #dadada;
+  display: flex;
+  flex-direction: column;
 }
 
-.user-message {
-  text-align: left;
-  color: #333; /* Set the text color for user messages */
+/* Adjust the CSS for chat messages */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto; /* Add vertical scrollbar when messages overflow */
+  padding-bottom: 10px; /* Add some space at the bottom */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align messages to the left */
+}
+
+
+.chat-input-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+#user-input {
+  flex: 1;
+  padding: 8px;
+  margin-right: 10px;
+}
+
+#send-button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #b0e4a4;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#send-button:hover {
+  background-color: #0056b3;
 }
   
 .chat-prompt {
@@ -333,8 +194,24 @@ body {
 
   
 
+.contact-details-container {
+  margin-top: 20px;
+}
+
+.contact-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.contact-item h3 {
+  margin-top: 0;
+}
+
+.contact-item p {
+  margin-bottom: 0;
+}
   
   
-  
->>>>>>> 9ea564b887c8086f34afe0e549a669891e1abca1
   
