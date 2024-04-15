@@ -1,4 +1,3 @@
-<!-- views/about.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +6,14 @@
   <title>About Us | Your Awesome Website</title>
   <link rel="stylesheet" href="/styles.css">
   <!-- Add your styles here if needed -->
+  <style>
+    .section-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+</style>
 </head>
 <body>
   <header>
@@ -20,7 +27,37 @@
   </header>
 
   <main>
-    <p>This is the about page. Share information about your company or project here.</p>
+    <section class="section-container company-info">
+      <h2>Our Company</h2>
+      <p>Welcome to Your Awesome Website! We are a team of passionate individuals dedicated to providing the best products and services to our customers. Our goal is to make your online shopping experience enjoyable and hassle-free.</p>
+    </section>
+
+    <section class="section-container mission">
+      <h2>Our Mission</h2>
+      <p>At Your Awesome Website, our mission is to deliver high-quality products that exceed customer expectations. We strive to foster long-term relationships with our customers by providing excellent service and support.</p>
+    </section>
+
+    <section class="section-container team">
+      <h2>Meet Our Team</h2>
+      <p>Our team consists of talented individuals with diverse backgrounds and expertise. Together, we work collaboratively to innovate and create products that make a difference in people's lives.</p>
+      <ul>
+        <li>John Doe - CEO</li>
+        <li>Jane Smith - Marketing Director</li>
+        <li>Michael Johnson - Product Manager</li>
+        <!-- Add more team members as needed -->
+      </ul>
+    </section>
+
+    <section class="section-container achievements">
+      <h2>Our Achievements</h2>
+      <p>Over the years, we have achieved significant milestones and received recognition for our dedication and commitment to excellence. Some of our accomplishments include:</p>
+      <ul>
+        <li>Winner of the Best Customer Service Award</li>
+        <li>Featured in Forbes Magazine for Innovation</li>
+        <li>Reached 1 million satisfied customers milestone</li>
+        <!-- Add more achievements as needed -->
+      </ul>
+    </section>
   </main>
 
   <div class="footer">
