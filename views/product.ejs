@@ -7,6 +7,31 @@
   <title><%= product.title %> | Your Awesome Website</title>
   <link rel="stylesheet" href="/styles.css">
   <!-- Add your styles here if needed -->
+  <style>
+    /* Additional CSS for button and container */
+    .buy-now-button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .buy-now-button:hover {
+      background-color: #0056b3;
+    }
+
+    .user-info {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -29,14 +54,6 @@
       </div>
     </div>
 
-    <!-- Display user information -->
-    <div class="user-info">
-      <h2>User Information</h2>
-      <p>Name: <%= product.user.name %></p>
-      <p>Email: <%= product.user.email %></p>
-      <p>Phone: <%= product.user.phone %></p>
-    </div>
-
     <!-- Chat-like functionality on the right side -->
     <div class="chat-container">
       <p class="chat-prompt">Ask any queries</p>
@@ -44,6 +61,18 @@
       <textarea id="user-input" placeholder="Type your message"></textarea>
       <button onclick="sendMessage()">Send</button>
     </div>
+
+    <!-- User Information Container -->
+    <div class="user-info" id="user-info" style="display: none;">
+      <h2>User Information</h2>
+      <p>Name: <%= product.user.name %></p>
+      <p>Email: <%= product.user.email %></p>
+      <p>Phone: <%= product.user.phone %></p>
+    </div>
+    
+    <!-- Buy Now button -->
+    <button onclick="toggleUserInfo()" class="buy-now-button">Buy Now</button>
+
   </main>
 
   <div class="footer">
@@ -58,6 +87,19 @@
       var chatMessages = document.getElementById('chat-messages');
       chatMessages.innerHTML += '<p class="chat-message user-message"><strong>User:</strong> ' + userInput + '</p>';
       document.getElementById('user-input').value = '';
+    }
+
+    function toggleUserInfo() {
+      var userInfo = document.getElementById('user-info');
+      var contactInfo = document.getElementById('contact-info'); // Added
+
+      if (userInfo.style.display === 'none') {
+        userInfo.style.display = 'block';
+        contactInfo.style.display = 'block'; // Added
+      } else {
+        userInfo.style.display = 'none';
+        contactInfo.style.display = 'none'; // Added
+      }
     }
   </script>
 </body>
