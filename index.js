@@ -61,19 +61,30 @@ app.get('/list-product', (req, res) => {
 });
 
 app.post('/list-product', upload.single('productImage'), (req, res) => {
-  const { productTitle, productDescription, productPrice } = req.body;
+  const { userName, userEmail, userPhone, productTitle, productDescription, productPrice } = req.body;
   const productImage = req.file ? 'uploads/' + req.file.filename : null;
 
-  products.push({
+  // Create a new product object with user and product information
+  const newProduct = {
     id: (products.length + 1).toString(),
     title: productTitle,
     description: productDescription,
     price: parseFloat(productPrice),
     image: productImage,
-  });
+    user: {
+      name: userName,
+      email: userEmail,
+      phone: userPhone
+    }
+  };
 
+  // Push the new product into the products array
+  products.push(newProduct);
+
+  // Redirect to the home page or display a confirmation message
   res.redirect('/');
-});
+})
+
 
 app.get('/product/:productId', (req, res) => {
   const productId = req.params.productId;
