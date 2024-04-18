@@ -28,6 +28,11 @@ const products = [
     description: 'Description of Product 1',
     price: 19.99,
     image: 'uploads/productImage-1702221578110.jpeg',
+    user: {
+      name: 'User 1',
+      email: 'user1@example.com',
+      phone: '1234567890'
+    }
   },
   {
     id: '2',
@@ -35,6 +40,11 @@ const products = [
     description: 'Description of Product 2',
     price: 29.99,
     image: 'uploads/productImage-1702220945886.jpeg',
+    user: {
+      name: 'User 2',
+      email: 'user2@example.com',
+      phone: '9876543210'
+    }
   },
   // Add more products as needed
 ];
