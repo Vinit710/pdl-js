@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
+const csv = require('csv-parser');
 
 const app = express();
 const port = 3000;
@@ -10,6 +12,60 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Load user data from CSV file
+const usersFilePath = 'users.csv';
+let users = [];
+
+fs.createReadStream(usersFilePath)
+  .pipe(csv())
+  .on('data', (data) => users.push(data))
+  .on('end', () => console.log('Users loaded:', users));
+
+// Login page route
+app.get('/login', (req, res) => {
+  res.render('login', { error: null });
+});
+
+
+// Registration page route
+app.get('/register', (req, res) => {
+  res.render('register', { error: null, success: null });
+});
+
+
+// Handle login form submission
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+  const user = users.find(u => u.email === email && u.password === password);
+  if (user) {
+    // Successful login, redirect to home page
+    res.redirect('/');
+  } else {
+    // Invalid credentials, render login page with error message
+    res.render('login', { error: 'Invalid email or password' });
+  }
+});
+
+// Handle registration form submission
+app.post('/register', (req, res) => {
+  const { name, email, password } = req.body;
+  // Check if the user already exists
+  if (users.find(u => u.email === email)) {
+    res.render('register', { error: 'User already exists with this email' });
+  } else {
+    // Add the new user to the users array
+    users.push({ name, email, password });
+    // Append the new user to the CSV file
+    fs.appendFile(usersFilePath, `${name},${email},${password}\n`, (err) => {
+      if (err) throw err;
+      console.log('User registered:', { name, email });
+      // Redirect to login page with success message
+      res.render('login', { success: 'Registration successful. Please log in.' });
+    });
+  }
+});
+
 
 const storage = multer.diskStorage({
   destination: './public/uploads/',
