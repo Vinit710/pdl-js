@@ -26,11 +26,11 @@ This project implements a web application that combines a registration and login
 
 3. **Setup the Application**: Install the following libaries using npm:
     ```bash
-npm install express
-npm install body-parser
-npm install multer
-npm install csv-parser
-```
+    npm install express
+    npm install body-parser
+    npm install multer
+    npm install csv-parser
+    ```
 
 
 4. **Run the Application**: Start the server by running:
