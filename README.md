@@ -24,20 +24,20 @@ This project implements a web application that combines a registration and login
 1. **Clone the Repository**: Clone this repository to your local machine.
 2. **Install Dependencies**: Navigate to the project directory in your terminal and run:
 
-3. **Run the Application**: Install the following libaries using npm:
+3. **Setup the Application**: Install the following libaries using npm:
     1. **npm install express
     2. **npm install body-parser
     3. **npm install multer
     4. **npm install csv-parser
 
 
-3. **Run the Application**: Start the server by running:
+4. **Run the Application**: Start the server by running:
     ```bash
     node index.js
     ``` 
 
 
-4. **Access the Application**: Open a web browser and go to [http://localhost:3001](http://localhost:3001) to access the application.
+5. **Access the Application**: Open a web browser and go to [http://localhost:3001](http://localhost:3001) to access the application.
 
 ## Usage
 
