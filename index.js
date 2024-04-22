@@ -6,33 +6,45 @@ const fs = require('fs');
 const csv = require('csv-parser');
 
 const app = express();
-const port = 3000;
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// Load user data from CSV file
+const port = 3001;
 const usersFilePath = 'users.csv';
 let users = [];
 
 fs.createReadStream(usersFilePath)
-  .pipe(csv())
+  .pipe(csv({ headers: ['name', 'email', 'password'] })) // Specify CSV headers
   .on('data', (data) => users.push(data))
   .on('end', () => console.log('Users loaded:', users));
+
+
+// Load products data from JSON file
+const productsFilePath = 'products.json';
+let products = [];
+
+// Load existing products from JSON file
+fs.readFile(productsFilePath, 'utf8', (err, data) => {
+  if (err) {
+    console.error('Error reading products file:', err);
+  } else {
+    products = JSON.parse(data);
+    console.log('Products loaded:', products);
+  }
+});
 
 // Login page route
 app.get('/login', (req, res) => {
   res.render('login', { error: null });
 });
 
-
 // Registration page route
 app.get('/register', (req, res) => {
   res.render('register', { error: null, success: null });
 });
-
 
 // Handle login form submission
 app.post('/login', (req, res) => {
@@ -66,7 +78,6 @@ app.post('/register', (req, res) => {
   }
 });
 
-
 const storage = multer.diskStorage({
   destination: './public/uploads/',
   filename: function (req, file, cb) {
@@ -76,43 +87,17 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// Sample products data
-const products = [
-  {
-    id: '1',
-    title: 'Product 1',
-    description: 'Description of Product 1',
-    price: 19.99,
-    image: 'uploads/productImage-1702221578110.jpeg',
-    user: {
-      name: 'User 1',
-      email: 'user1@example.com',
-      phone: '1234567890'
-    }
-  },
-  {
-    id: '2',
-    title: 'Product 2',
-    description: 'Description of Product 2',
-    price: 29.99,
-    image: 'uploads/productImage-1702220945886.jpeg',
-    user: {
-      name: 'User 2',
-      email: 'user2@example.com',
-      phone: '9876543210'
-    }
-  },
-  // Add more products as needed
-];
-
 app.get('/', (req, res) => {
   const latestProducts = products.slice(0, 3);
   res.render('index', { username: 'Guest', latestProducts });
 });
 
+
+// Get products
 app.get('/products', (req, res) => {
-  res.render('products', { products: products });
+  res.render('products', { products });
 });
+
 
 app.get('/about', (req, res) => {
   res.render('about');
@@ -122,10 +107,13 @@ app.get('/contact', (req, res) => {
   res.render('contact');
 });
 
+
+// List product route
 app.get('/list-product', (req, res) => {
-  res.render('list-product', { products: products });
+  res.render('list-product', { products });
 });
 
+// Add product route
 app.post('/list-product', upload.single('productImage'), (req, res) => {
   const { userName, userEmail, userPhone, productTitle, productDescription, productPrice } = req.body;
   const productImage = req.file ? 'uploads/' + req.file.filename : null;
@@ -147,10 +135,18 @@ app.post('/list-product', upload.single('productImage'), (req, res) => {
   // Push the new product into the products array
   products.push(newProduct);
 
+  // Write the updated products array to the JSON file
+  fs.writeFile(productsFilePath, JSON.stringify(products), (err) => {
+    if (err) {
+      console.error('Error writing products file:', err);
+    } else {
+      console.log('Products updated and saved.');
+    }
+  });
+
   // Redirect to the home page or display a confirmation message
   res.redirect('/');
-})
-
+});
 
 app.get('/product/:productId', (req, res) => {
   const productId = req.params.productId;
@@ -162,6 +158,7 @@ app.get('/product/:productId', (req, res) => {
     res.status(404).send('Product not found');
   }
 });
+
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
