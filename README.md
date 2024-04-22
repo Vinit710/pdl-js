@@ -25,10 +25,12 @@ This project implements a web application that combines a registration and login
 2. **Install Dependencies**: Navigate to the project directory in your terminal and run:
 
 3. **Setup the Application**: Install the following libaries using npm:
-    1. **npm install express
-    2. **npm install body-parser
-    3. **npm install multer
-    4. **npm install csv-parser
+    ```bash
+npm install express
+npm install body-parser
+npm install multer
+npm install csv-parser
+```
 
 
 4. **Run the Application**: Start the server by running:
