@@ -22,7 +22,7 @@ This project implements a web application that combines a registration and login
 ## Installation and Setup
 
 1. **Clone the Repository**: Clone this repository to your local machine.
-2. **Install Dependencies**: Install
+2. **Install Dependencies**: Install node.js form website
 
 3. **Setup the Application**: Navigate to the project directory in your terminal and run:
 Install the following libaries using npm:
