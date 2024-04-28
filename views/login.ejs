@@ -1,13 +1,15 @@
-<!-- views/login.ejs -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="/styles.css">
-  <style>
-     body {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/bootstrap-5.2.2/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/fontawesome-6.2.0/all.min.css">
+    <link rel="stylesheet" href="/css/reg-am/login.min.css">
+    <link rel="stylesheet" href="/css/ibkr/theme-ibkr-portal.min.css">
+    <style>
+        body {
             background-image: url('/clg.jpg');
             background-size: cover;
             background-position: center;
@@ -18,7 +20,6 @@
             height: 100vh;
             margin: 0;
         }
-
         .background-container {
             position: fixed;
             top: 0;
@@ -35,72 +36,58 @@
             background-attachment: fixed;
             width: 100%;
             height: 100%;
-            filter: blur(5px);
+            filter: blur(5px); /* Apply blur effect */
         }
-
-        .form-container {
-            background-color: rgba(255, 255, 255, 0.7);
+        .container {
+            max-width: 600px; /* Adjust the width as needed */
+            width: 100%;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.825);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             text-align: center;
-            max-width: 400px;
-            width: 100%;
         }
-
-        form {
-            margin-top: 20px;
+        .form-container {
+            margin-top: 20px; /* Added margin between the logo and form */
         }
-
-        label,
-        input {
+        .form-container label,
+        .form-container input {
             display: block;
             margin-bottom: 10px;
         }
-
-        input[type="submit"] {
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        p {
-            margin-top: 20px;
-        }
-
-        p a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        p a:hover {
-            text-decoration: underline;
+        .form-container input[type="submit"] {
+            margin-top: 10px; /* Added margin between password field and login button */
         }
     </style>
 </head>
 <body>
-    <div class="background-container">
-        <div class="background-image"></div>
-    </div>
-    <div class="form-container">
-        <main>
-        <form action="/login" method="post">
-        <h2>Login</h2>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
-      </form>
-      <p>Don't have an account? <a href="/register">Register</a></p>
-    </main>
-  </div>
+    <section class="login-page">
+        <div class="background-container">
+            <div class="background-image"></div>
+        </div>
+        <div class="container">
+            <div class="login-container">
+                <div class="form-container">
+                    <main>
+                        <form action="/login" method="post">
+                            <h2>Login</h2>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" required>
+                            <button type="submit">Login</button>
+                        </form>
+                        <p>Don't have an account? <a href="/register">Register</a></p>
+                    </main>
+                </div>
+
+                <noscript>
+                    <div class="alert alert-danger mt-4">JavaScript must be enabled to use this application!</div>
+                </noscript>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
