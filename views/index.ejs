@@ -54,12 +54,16 @@
     </div>
     <div class="popular-products">
       <h2 style="color: #333;">Popular Products</h2>
-      <div class="product-box">
+      <div class="product-box row">
         <% latestProducts.forEach(product => { %>
-          <div class="product">
-            <h3><%= product.title %></h3>
-            <p><%= product.description %></p>
-            <img src="<%= product.image %>" alt="<%= product.title %> Image">
+          <div class="col-md-4">
+            <div class="product">
+              <img src="<%= product.image %>" alt="<%= product.title %> Image" class="product-image">
+              <div class="product-details">
+                <h3><%= product.title %></h3>
+                <p><%= product.description %></p>
+              </div>
+            </div>
           </div>
         <% }); %>
       </div>
