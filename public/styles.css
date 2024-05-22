@@ -28,6 +28,20 @@ body {
     padding: 10px;
     font-size: 18px;
   }
+  .navbar {
+    height: 100px;
+  }
+  .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem; /* Make the website name bigger */
+  }
+  .navbar-nav .nav-link {
+    font-size: 1.25rem; /* Make nav links bigger */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
   main {
     padding: 20px;
@@ -41,13 +55,15 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: space-around; /* Add this line */
   }
   
   .product {
-    border: 1px solid #ddd;
+    border: 1px solid #344ee3;
     padding: 20px;
     border-radius: 8px;
     background-color: #fff;
+    
   }
   
   .product-image {
